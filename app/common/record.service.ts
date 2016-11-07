@@ -8,14 +8,18 @@ const URLSearchParams = require('url-search-params');
 export class RecordService {
     constructor(){
         let param = new URLSearchParams(window.location.search);
-        this.path = param.get('path');
-        this.destination = param.get('destination');
+        let vid = <Array<string>>param.get('vid').split(',') || [];
+        this.path = vid[0];
+        this.framelist = _.map(vid.slice(1), parseInt);
+        this.destination = 'https://workersandbox.mturk.com/mturk/externalSubmit';
+        this.assignmentId = param.get('assignmentId');
     }
 
     private records = <{ number: Status }>{};
     path: string;
     destination: string;
-
+    framelist: Array<number>;
+    assignmentId: string;
 
     put(id: number, choice: string) {
         this.records[id] = <Status>choice;
@@ -28,7 +32,8 @@ export class RecordService {
     submit() {
         this._submit({
             'path': this.path,
-            'destination': _.join(_.map(this.records, (value, key) => `${key},${value}`), '|')
+            'destination': _.join(_.map(this.records, (value, key) => `${key},${value}`), '|'),
+            'assignmentId': this.assignmentId,
         }, this.destination)
     }
 
@@ -45,6 +50,7 @@ export class RecordService {
         button.type = 'submit';
         form.action = destination;
         document.body.appendChild(form);
+        // console.log(pair);
         form.submit();
     }
 }

@@ -11,16 +11,20 @@ export class ContentComponent {
     @ViewChild('progressbar') progressRef;
 
     fid: number = 0;
-    total_frames: number = 10;
+    total_frames: number = this.recorder.framelist.length;
     constructor(
         private recorder: RecordService
     ) {
         this.fid = 1;
     }
 
+    get frameid(){
+        return this.recorder.framelist[this.fid-1];
+    }
+
     updateprogress(fid: number) {
         if (fid > this.total_frames) {
-            // this.recorder.submit();
+            this.recorder.submit();
             this.snackbarRef.nativeElement.MaterialSnackbar.showSnackbar({
                 message: `You have finished the test`,
                 timeout: 1000,

@@ -38,7 +38,6 @@ export class CanvasComponent implements AfterViewInit, OnChanges {
     ngAfterViewInit() {
         this.bounded_ctx = this.boundedRef.nativeElement.getContext('2d');
         this.filtered_ctx = this.filteredRef.nativeElement.getContext('2d');
-        // this._initresolved();
         setTimeout(this._initresolved, 200);
         setTimeout(this.onResize.bind(this), 0);
         setTimeout(this.onResize.bind(this), 20);
