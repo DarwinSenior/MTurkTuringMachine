@@ -1,0 +1,39 @@
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div>
+    <h1>
+        Annotation on the {{fid}} pairs out of {{total_frames}}
+    </h1>
+    <div class="mdl-progress mdl-js-progress" style="width: 100%" #progressbar></div>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="coco" (click)="choose('left')">
+            Left
+        </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="none" (click)="choose('none')">
+            None
+        </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="both" (click)="choose('both')">
+            Both
+        </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="pascal" (click)="choose('right')">
+            Right
+        </button>
+    <div class="mdl-layout-spacer"></div>
+</div>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+        <show-canvas model="coco" [fid]="fid" [path]="recorder.path"></show-canvas>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col">
+        <show-canvas model="pascal" [fid]="fid" [path]="recorder.path"></show-canvas>
+    </div>
+</div>
+
+<div class="mdl-js-snackbar mdl-snackbar" #snackbar>
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+</div>

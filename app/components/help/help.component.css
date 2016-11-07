@@ -1,0 +1,10 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+:host {
+    display: block;
+    margin: 5px 10%;
+}

@@ -1,0 +1,8 @@
+.md-layout{
+    align-items: center;
+    justify-content: center;
+}
+canvas{
+    display: block;
+    margin: auto;
+}
