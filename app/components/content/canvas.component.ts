@@ -84,7 +84,7 @@ export class CanvasComponent implements AfterViewInit, OnChanges {
     }
 
     updateState() {
-        const background_path = `${this.path}/frame/${_.padStart(this.fid.toString(), 8, '0')}.jpg`;
+        const background_path = `${this.path}/frame/${_.padStart((this.fid + 1).toString(), 8, '0')}.jpg`;
         const mask_path = `${this.path}/probmaps/seg_${this.model}_${this.fid}.png`;
         const box_path = `${this.path}/bbox/${_.padStart(this.fid.toString(), 6, '0')}.xml`;
         return Promise.all([
