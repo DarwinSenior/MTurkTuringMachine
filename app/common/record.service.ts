@@ -6,10 +6,10 @@ const URLSearchParams = require('url-search-params');
 
 @Injectable()
 export class RecordService {
-    constructor(){
+    constructor() {
         let param = new URLSearchParams(window.location.search);
         let vid = <Array<string>>param.get('vid').split(',') || [];
-        this.path = vid[0];
+        this.path = window.location.pathname + vid[0];
         this.framelist = _.map(vid.slice(1), parseInt);
         this.destination = 'https://workersandbox.mturk.com/mturk/externalSubmit';
         this.assignmentId = param.get('assignmentId');
@@ -25,7 +25,7 @@ export class RecordService {
         this.records[id] = <Status>choice;
     }
 
-    remove(id: number){
+    remove(id: number) {
         delete this.records[id];
     }
 

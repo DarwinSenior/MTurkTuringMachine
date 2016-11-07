@@ -12,6 +12,9 @@ import { HelpComponent } from './components/help/help.component'
 import { ContentComponent } from './components/content/content.component'
 import { CanvasComponent } from './components/content/canvas.component'
 
+require("!!style!css!material-design-lite/material.min.css");
+require("!!script!material-design-lite/material.min.js");
+
 @NgModule({
     imports: [BrowserModule, HttpModule],
     declarations: [
