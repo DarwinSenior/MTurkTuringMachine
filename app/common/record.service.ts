@@ -10,7 +10,8 @@ export class RecordService {
         let param = new URLSearchParams(window.location.search);
         let vid = <Array<string>>param.get('vid').split(',') || [];
         this.path = window.location.pathname + vid[0];
-        this.framelist = _.map(vid.slice(1), parseInt);
+        this.framelist = vid.slice(1).map(_.partial(parseInt, _, 10));
+        console.log(this.framelist, vid.slice(1));
         this.destination = 'https://workersandbox.mturk.com/mturk/externalSubmit';
         this.assignmentId = param.get('assignmentId');
     }

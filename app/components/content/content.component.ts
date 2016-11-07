@@ -11,13 +11,15 @@ export class ContentComponent {
     @ViewChild('progressbar') progressRef;
 
     fid: number = 0;
-    total_frames: number = this.recorder.framelist.length;
     constructor(
         private recorder: RecordService
     ) {
         this.fid = 1;
     }
 
+    get total_frames() {
+        return this.recorder.framelist.length;
+    }
     get frameid(){
         return this.recorder.framelist[this.fid-1];
     }

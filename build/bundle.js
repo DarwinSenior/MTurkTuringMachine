@@ -45796,7 +45796,8 @@
 	        var param = new URLSearchParams(window.location.search);
 	        var vid = param.get('vid').split(',') || [];
 	        this.path = window.location.pathname + vid[0];
-	        this.framelist = _.map(vid.slice(1), parseInt);
+	        this.framelist = vid.slice(1).map(_.partial(parseInt, _, 10));
+	        console.log(this.framelist, vid.slice(1));
 	        this.destination = 'https://workersandbox.mturk.com/mturk/externalSubmit';
 	        this.assignmentId = param.get('assignmentId');
 	    }
@@ -65624,9 +65625,15 @@
 	    function ContentComponent(recorder) {
 	        this.recorder = recorder;
 	        this.fid = 0;
-	        this.total_frames = this.recorder.framelist.length;
 	        this.fid = 1;
 	    }
+	    Object.defineProperty(ContentComponent.prototype, "total_frames", {
+	        get: function () {
+	            return this.recorder.framelist.length;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(ContentComponent.prototype, "frameid", {
 	        get: function () {
 	            return this.recorder.framelist[this.fid - 1];
