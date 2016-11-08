@@ -65597,7 +65597,7 @@
 /* 342 */
 /***/ function(module, exports) {
 
-	module.exports = "Instruction\n===========\n\nWe are currently conducting a project on image . Since we wish to improve based on the existing methods and we need better data. Currently we annotated with methods before and we wish you could tell us if each of the result is good enough and whether it needs more human annotation.\n\nWe are ask you to view two pairs of images. Both pairs show the result of the annotation. You have to decide roughly if a human annotator could do better than what we did there.\n\nChoices\n=======\n\nThere are four choice buttons and you are ask to choose one that fits best based on the following criteria:\n\n1. Left: The left segmentation is better than the right one and you think that this is what a normal human annotator could do.\n2. Right: The right segmentation is better then the left one and you think that this is what a normal human annotator could do.\n3. Both: You cannot tell whether the left one or the right one is better and they both achieve the standard of a human annotator.\n4. Neither: You think the human annotator could do better than either of the result.\n\nProgress\n========\n\nYou will answer a series of this question based on our annotation of a short video.\n\nYou could see your progress on the top of the screen with indication.\n\nExample\n=======\n\nHere are four examples that you could choose."
+	module.exports = "Instruction\n===========\n\nWe are currently conducting a project on image . Since we wish to improve based on the existing methods and we need better data. Currently we annotated with methods before and we wish you could tell us if each of the result is good enough and whether it needs more human annotation.\n\nWe are ask you to view two pairs of images. Both pairs show the result of the annotation. You have to decide roughly if a human annotator could do better than what we did there.\n\nChoices\n=======\n\nThere are four choice buttons and you are ask to choose one that fits best based on the following criteria:\n\n1. Left: The left segmentation is better than the right one and you think that this is what a normal human annotator could do.\n2. Right: The right segmentation is better then the left one and you think that this is what a normal human annotator could do.\n3. Both: You cannot tell whether the left one or the right one is better and they both achieve the standard of a human annotator.\n4. Neither: You think the human annotator could do better than either of the result.\n\nProgress\n========\n\nYou will answer a series of this question based on our annotation of a short video.\n\nYou could see your progress on the top of the screen with indication.\n\n"
 
 /***/ },
 /* 343 */
@@ -65783,7 +65783,7 @@
 	    };
 	    CanvasComponent.prototype.updateState = function () {
 	        var _this = this;
-	        var background_path = this.path + "/frame/" + _.padStart(this.fid.toString(), 8, '0') + ".jpg";
+	        var background_path = this.path + "/frame/" + _.padStart((this.fid + 1).toString(), 8, '0') + ".jpg";
 	        var mask_path = this.path + "/probmaps/seg_" + this.model + "_" + this.fid + ".png";
 	        var box_path = this.path + "/bbox/" + _.padStart(this.fid.toString(), 6, '0') + ".xml";
 	        return Promise.all([

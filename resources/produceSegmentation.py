@@ -5,10 +5,11 @@ from PIL import Image
 import numpy as np
 
 dirs = os.listdir(".")
-x = "./ILSVRC2015_val_00006005/segmentation"
 
 for dir in dirs:
     produce_dir = os.path.join(dir, "probmaps")
+    if not os.path.isdir(produce_dir):
+        continue
     # video_dir = os.path.join(dir, "segmentation", "visuals", "segmentations")
     for model in ["coco", "pascal"]:
         file = os.path.join(produce_dir, "model_%s_obj0.mat" % model)

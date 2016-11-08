@@ -22,7 +22,3 @@ You will answer a series of this question based on our annotation of a short vid
 
 You could see your progress on the top of the screen with indication.
 
-Example
-=======
-
-Here are four examples that you could choose.

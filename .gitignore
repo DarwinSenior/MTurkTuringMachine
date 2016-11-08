@@ -8,5 +8,4 @@ bower_components
 .tern-port
 .idea/
 /typings.json
-/*.pyc
 *.pyc
